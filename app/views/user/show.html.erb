@@ -1,31 +1,64 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-primary">
-  <a class="navbar-brand" href="<%="/"%>">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TheGossipProject</title>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="<%="/home"%>">Home </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<%="/contact"%>">Contact </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<%="/team"%>">Team</a>
-      </li>
-    </ul>
-  </div>
-</nav>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
 
-<div class="p-4"></div>
-<h1><%= @user.first_name %> <%= @user.last_name %></h1>
-<div class="p-4"></div>
-<p>Lives in : <%= @city.name %> <br>
-age : <%= @user.age %><br>
-email : <%= @user.email %></p>
+  <body>
 
-<div class="p-3"></div>
-<p>Description :</p>
-<p><%= @user.description %></p>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">The Gossip Project</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="<%="/home"%>">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="<%="/team"%>">Team</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="<%="/contact"%>">Contact</a>
+            </li>
+          </ul>
+      
+          <div class="d-flex flex-row-reverse">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="<%="/user/new"%>">Sign up</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="<%="/sessions/new"%>">Sign in</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="<%="/dashboard"%>">Dashboard</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" <%=link_to "Logout", session_path(session.id), method: :delete%></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div class="p-4"></div>
+      <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+      <div class="p-4"></div>
+      <p>Lives in : <%= @city.name %> <br>
+      age : <%= @user.age %><br>
+      email : <%= @user.email %></p>
+
+      <div class="p-3"></div>
+      <p>Description :</p>
+      <p><%= @user.description %></p>
+
+  </body>
+</html>
