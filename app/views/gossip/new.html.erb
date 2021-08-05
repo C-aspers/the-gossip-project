@@ -32,28 +32,27 @@
         </div>
       </nav>
 
+<br><h1>créer un nouveau gossip</h1><br>
 
+<%= form_tag url_for(action: 'create'), method: "post" do %>
+<input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >
+<input type="hidden" name="gossip[user_id]" value=<%= current_user.id %> >
 
+      <%= label_tag 'Title' %>
+      <%= text_field_tag 'gossip[title]'%>
+      <br /> <br />
 
-<br>
-<h1>Gossip n°<%= @gossip_numb%></h1><br>
+      <%= label_tag 'Content' %>
+      <%= text_area_tag 'gossip[content]'%>
+      <br /> <br />
 
-<br>
-<p> 
-<% @gossip.each do |value|%>
-Titre du potin : <%= value.title %><br>
-Contenu : <%= value.content %><br>
-Date de création : 02/08/2021 <br>
-<% end %>
-</p>
+      <%= submit_tag "Create Gossip" %>
+    <% end %>
 
-<p> 
-<% @person.each do |value|%>
-Crée par : <%= value.first_name %>, <%= value.last_name %><br>
-<% end %>
-</p>
+    <div class="alert alert-warning" role="alert">
+  A simple warning alert—check it out!
+</div>
 
-
-<p>bouton envoie</p>
- </body>
+  </body>
 </html>
+

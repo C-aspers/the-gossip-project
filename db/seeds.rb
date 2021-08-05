@@ -22,7 +22,7 @@ end
 10.times do
   city_random = rand(City.first.id..City.last.id)
  
-  user = User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, description: Faker::Lorem.sentence, email: Faker::Internet.email, age: rand(80), city_id: city_random)
+  user = User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, description: Faker::Lorem.sentence, email: Faker::Internet.email, age: rand(80), city_id: city_random, password_digest: Faker::Lorem.characters(number: 12, min_alpha: 4, min_numeric: 2))
   #puts "c'est OK"
 end
 

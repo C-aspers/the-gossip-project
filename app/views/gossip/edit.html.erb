@@ -1,0 +1,20 @@
+<h1>Editer le nouveau gossip</h1>
+
+<% user_id = rand(User.first.id..User.last.id) %>
+<%= form_tag url_for(action: 'edit'), method: "post" do %>
+<input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >
+
+      <%= label_tag 'Title' %>
+      <%= text_field_tag 'gossip[title]'%>
+      <br /> <br />
+
+      <%= label_tag 'Content' %>
+      <%= text_area_tag 'gossip[content]'%>
+      <br /> <br />
+
+      <%= label_tag 'user_id' %>
+      <%= text_field_tag 'gossip[user_id]', "#{user_id}"%>
+       <br /> <br />
+
+      <%= submit_tag "Edit Gossip" %>
+    <% end %>
